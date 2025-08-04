@@ -22,7 +22,8 @@ let messages = {"index":"Make great art!", "gallery":"You've made great art!!", 
 // which page are we on so we can obscure/alter the navigation for that page when on it
 let url = window.location.pathname;
 console.log(url);
-let link = "index";
+if (url == "/Final-Project/") {url = url += "index.html"}
+//let link = "index";
 const lastSlashIndex = url.lastIndexOf('/');
 if (lastSlashIndex === -1 || url === "/") {
     // No slash found, return the entire string
