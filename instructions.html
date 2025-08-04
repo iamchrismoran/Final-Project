@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Amarante&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+
+    <style>
+        /* styles added for this page because I didn't want to mess with the parent stylesheet */
+        .collapsible {
+            background-color: #333333;
+            color: white;
+            cursor: pointer;
+            padding: 8px;
+            width: 100%;
+            border: none;
+            text-align: left;
+            outline: none;
+            font-size: 15px;
+        }
+        #intro, .sectionHeader{
+            margin-top: 20px;
+            
+        }
+
+        .active, .collapsible:hover {
+            background-color: #555;
+            color:rgb(from red 255 120 120);
+
+        }
+
+        .content {
+            padding: 0 18px;
+            display: none;
+            overflow: hidden;
+            box-shadow: 3px 3px 6px black;
+            margin-bottom: 8px;
+            /*background-color: #f1f1f1;*/        
+        }
+        button {
+            margin-top: 0px;
+        }
+    </style>
+    <title>Pixel Art Instructions</title>
+</head>
+<body>
+    <header>
+        <div>
+            <h1 id="topTitle" style="position: sticky; top:10px; display:inline; "></h1>
+            <span style="font-size: 10px;">
+                <a href="#" name="fontchange" id="fontchange">Change font</a>
+            </span>
+        </div>
+
+        <div class="navigation">
+            <div id="index"><a href="index.html" id="create">Create</a></div>
+            <div id="gallery"><a href="gallery.html" id="gallery">Your Gallery</a></div>
+            <div id="instructions"><a href="instructions.html" id="instructions">Instructions</a></div>
+            <div id="about"><a href="about.html" id="about">About</a></div>
+
+        </div>
+   
+    </header>
+    <section id="intro">
+        <div class="sectionHeader">
+
+        </div>
+        <div class="sectionContent" style="font-size: 1.02em;">
+            Welcome to the Pixel Art Creator
+            <br><br>
+            If you have time and patience, I hope you can create some interesting art of even some pixel art for game design. Most edits you make get autosaved and the Gallery page should show all of your previous works, and allow you to load them back up and keep working on them.
+        </div>
+    </section>
+    <section id="directions">
+        <div class="sectionHeader">
+            How to use the features
+        </div>
+        <div id="key">
+            <button type="button" class="collapsible">Pixel Size</button>
+
+            <div class="content">Changes the size of each block. Updating this will not autosave. Handy if you want need larger or smaller blocks to easy the design or to fill up space according to your browser window.</div>
+
+            <button type="button" class="collapsible">Width/Height</button>
+            <div class="content">These update the number of blocks horizontally (width) and vertically (height) in real time. Each time you make a change, it will autosave your design. Your design will stay in place according to its leftmost and topmost positions. If you make it wider or taller, it will add blanks blocks. If you make it narrower or shorter and there are colored blocks that get cut out, they are lost blocks.</div>
+
+            <button type="button" class="collapsible">Palette</button>
+            <div class="content">Here's the color picker. I hope it works well enough on all browsers. You can select colors from the gamut or use the dropper to pick some color anywher else on your screen. If you click on a block that has the <strong>exact</strong> same color you have selected, it will "erase" it (paint it white). Every time you click on a block to change the color, your art is autosaved.</div>
+
+            <button type="button" class="collapsible">Art Title</button>
+            <div class="content">Name your artwork. When you add/change the title of your work, it will autosave. If you change the name without making changed to the art, it will save it over the other title. If you want to restart, click the "Reset the design" button.</div>
+
+            <button type="button" class="collapsible">Show/Hide Mini Version</button>
+            <div class="content">This will pop open a version of the design with <span id="pixelwidth"></span> pixel blocks. It will stay up until you hide it again and it updates in real time when you make changes.</div>
+
+            <button type="button" class="collapsible">Reset the design</button>
+            <div class="content">This clears the colors, ands resets it back to all white.</div>
+
+            <button type="button" class="collapsible">Printing</button>
+            <div class="content">When you print using the system print or button (if available), it should open up a print dialog that only shows the artwork - suitable for the fridge.</div>
+        </div>
+    </section>
+
+   
+    <script src="script.js"></script>
+
+    <script>
+        // allow for collapible divs
+        var coll = document.getElementsByClassName("collapsible");
+        var i;
+
+        for (i = 0; i < coll.length; i++) {
+        coll[i].addEventListener("click", function() {
+            this.classList.toggle("active");
+            var content = this.nextElementSibling;
+            if (content.style.display === "block") {
+            content.style.display = "none";
+            } else {
+            content.style.display = "block";
+            }
+        });
+        }
+
+        // update the text in the show/hide section to refer to the size of the mini
+        // version's defined pixel width in the stylesheet. Need to create a dummy element
+        // first so that class is actually loaded on the page to reference
+        const dummy = document.createElement("div");
+        dummy.className = "minipixel";
+        dummy.style.position = "absolute";
+        dummy.style.visibility = "hidden"; // Don't show it
+        document.body.appendChild(dummy);
+        const mini = document.querySelector(".minipixel");
+        if (mini) {
+            const style = getComputedStyle(mini);
+            const width = style.getPropertyValue("width");
+            document.getElementById("pixelwidth").textContent = width;
+        } else {
+            console.warn("No .minipixel element found!");
+        }
+        dummy.remove();
+
+
+
+        </script>
+
+<footer>Background image <a href="http://www.freepik.com">Designed by Layerace / Freepik</a>. Site design by Chris Moran</footer>
+
+</body>
+</html>
