@@ -26,11 +26,11 @@ const lastSlashIndex = url.lastIndexOf('/');
 if (lastSlashIndex === -1 || url === "/") {
     // No slash found, return the entire string
     link = "index";
-    //console.log(link);
+    console.log(link);
 } else {
     // Return the substring starting from after the last slash
     link = url.substring(lastSlashIndex + 1).slice(0, -5);
-    //console.log(link);
+    console.log(link);
 }
 const hereNow = document.getElementById(link);
 //hereNow.style.backgroundColor = "black";
