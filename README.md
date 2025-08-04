@@ -1,4 +1,4 @@
-README.md rev 1.0
+README.md rev 1.1
 Title: Make Pixel Art
 Description:
 This pixel art creator is my final project for the Web Design for Edcuators class. While I have history with HTML, CSS and Javascript, it's been a lifetime since I used it and stopped before learning and HTML5 or the addition of a LOt of really cool CSS stuff. The purpose is to be able to "draw" 8-bit pixel art. Currently, you draw block by block. The app saves your prograss and when you name your works, it saves them with their names, wher ytou can view a gallery of your work, which you can reload to edit or delete altogether.
@@ -13,7 +13,9 @@ Forms elements (inputs) and validation are used to collect user information such
 
 Javascript functions for almost everything, from changing fonts to dealing with localStorage and allowing for saving progress and allowing a gallery of art that can be returned to for further editing any time.
 
-JSON parsing and stringifying is used to gather each pixel art object as an array of the piece's title and color for each "pixel"/block of the art to be stored on the localk machine.
+DOM manipulation allowed me to do direct real time changes to text/html. I'll say this is one feature I find really cool and didn['t understand how modern web developers were doing it. Waaaaaaaaaaaaaay back, we used frames and directed refreshes for content we knew could need updating dyamically. I likely used PHP somehow for some of thjis, but it was intrusive and I don't recall being able to just change content on the fly.
+
+JSON parsing and stringifying is used to gather each pixel art object as an array of the piece's title and color for each "pixel"/block of the art to be stored on the local machine.
 
 localStorage is used to store all the saves creations so they can be shown in the dynamic gallery and opened for edting again. It also makes use of localStorage to track which font the user has cycled through if they choose to change the font on the site, so it's persistent across pages and return visits.
 
@@ -25,5 +27,6 @@ Drawing proper, instead of clicking squares to make color.
 Adding a limited set of instructions on the "Create" page for quick reminders or access - my one test subject copmplained my instructions were too wordy and inconvenient for needing to check back for, mid creation.
 Some of the gallery thumbnails show up with either/both vertical and horizontal gaps between columns and rows. I couldn't figure out how to cause it to happen to see what was differnt between items that showed the visual flaw and those that didn't.
 I want to be able to allow the user to generate a shareable link that would let others start from their creation and edit/change their own remix of it. The biggest challenge could be URL length, with potentially hundreds or thousands of 3 8-bit color per pixel/block inclusions in the JSON, far surpassing URL length limits. Since their original artwork is stored locally and I don't want to store it on the server (can github even allow for that?), I'd have to find some way to compress the URL.
+There is a lot of repetitive html defining elements that are the same on all of the pages that I would, in hindsight, prefer I wrote once and just used the ability to use DOM manipulationmake templating pages without using PHP/server level scripting. Primarily the headers/navigation and footer.
 
 I spent more time on this than I'd like to actually account for, but it was fun, even when it was frustrating and counter to my son's guess, I do hope I continue to work on it even if it's just for some fun and maybe sharing with some friends. Whenever I get to teach my Computer Sceince/Programming course, it will be an example I'll use to show that even things that appear simple aren't always simple, but that with persistence, some planning and lots of openmindedness, you can make super cool things with just web based programming. They know this, since they USE interactive sites (twitch, .io gaming sites, youtube, and on and on, but building appreciation for the efforts put in will benefit them in more ways than just "knowing how to program". Critical thinking, perseverence, risk aversion-aversion, backing things up, and heavily commenting or commenting out to help bug test.
