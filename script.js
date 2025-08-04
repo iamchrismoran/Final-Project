@@ -27,7 +27,7 @@ if (url == "/Final-Project/") {url = url += "index.html"}
 const lastSlashIndex = url.lastIndexOf('/');
 if (lastSlashIndex === -1 || url === "/") {
     // No slash found, return the entire string
-    link = "index";
+    link = "create";
     console.log(link);
 } else {
     // Return the substring starting from after the last slash
